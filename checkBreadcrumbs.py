@@ -25,4 +25,4 @@ f = Breadcrumbs()
 
 f.getFile()
 file = f.getBrand()
-file.to_csv(f.brand + '.csv')  # Usa f.brand invece di brand
+file.to_csv(f.brand + '.csv', index = False)
