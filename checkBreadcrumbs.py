@@ -20,9 +20,17 @@ class Breadcrumbs:
         mask = self.breadcrumbs["html 1"].str.contains(self.brand, case=False)
         bread = self.breadcrumbs[mask]
         return bread
-
+    
+    def getCheck(self):
+        file["_link"] = file["html 1"].str.split(">").str[-1].str.strip()
+        file["breadcrumb"] = file["text 1"].str.split(">").str[-1].str.strip()
+        file["Check"] = file["_link"] == file["breadcrumb"]
+        return file
+        
 f = Breadcrumbs()
 
 f.getFile()
 file = f.getBrand()
+
+f.getCheck()
 file.to_csv(f.brand + '.csv', index = False)
