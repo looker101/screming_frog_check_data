@@ -6,7 +6,7 @@ class Breadcrumbs:
         self.brand = None  # Definisci brand come attributo della classe
 
     def getFile(self):
-        self.breadcrumbs = pd.read_csv("adidas.csv", usecols=["Indirizzo", "Bread_HTML 1", "Bread_TEXT 1"])
+        self.breadcrumbs = pd.read_csv("estrazione_personalizzata_tutti.csv", usecols=["Indirizzo", "Bread_HTML 1", "Bread_TEXT 1"])
         # formatto le colonne in modo da poterle confrontare
         self.breadcrumbs["Bread_HTML 1"] = self.breadcrumbs["Bread_HTML 1"].str.replace("\r\n", " ").str.replace("</span>", " ").str.replace("<span>", " ")
         self.breadcrumbs["Bread_TEXT 1"] = self.breadcrumbs["Bread_TEXT 1"].str.replace("\n", " ")
@@ -33,4 +33,7 @@ f.getFile()
 file = f.getBrand()
 
 f.getCheck()
+
+directory = r"C:\Users\miche\Desktop\py\GitHub\screming_frog_check_data\ok\\"
+file.to_csv(directory + f.brand + '.csv', index = False)
 file.to_csv(f.brand + '.csv', index = False)
