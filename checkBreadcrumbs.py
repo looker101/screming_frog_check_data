@@ -6,7 +6,7 @@ class Breadcrumbs:
         self.brand = None  # Definisci brand come attributo della classe
 
     def getFile(self):
-        self.breadcrumbs = pd.read_csv("estrazione_personalizzata_tutti.csv", usecols=["Indirizzo", "Bread_HTML 1", "Bread_TEXT 1"])
+        self.breadcrumbs = pd.read_csv(nome_file+".csv", usecols=["Indirizzo", "Bread_HTML 1", "Bread_TEXT 1"])
         # formatto le colonne in modo da poterle confrontare
         self.breadcrumbs["Bread_HTML 1"] = self.breadcrumbs["Bread_HTML 1"].str.replace("\r\n", " ").str.replace("</span>", " ").str.replace("<span>", " ")
         self.breadcrumbs["Bread_TEXT 1"] = self.breadcrumbs["Bread_TEXT 1"].str.replace("\n", " ")
@@ -17,9 +17,12 @@ class Breadcrumbs:
 
     def getBrand(self):
         self.brand = str(input("Scegli il brand a cui vuoi controllare i Breadcrumbs: "))  # Assegna il valore a brand
-        mask = self.breadcrumbs["Bread_HTML 1"].str.contains(self.brand, case=False)
-        bread = self.breadcrumbs[mask]
-        return bread
+        if self.brand in marchi:
+            mask = self.breadcrumbs["Bread_HTML 1"].str.contains(self.brand, case=False)
+            bread = self.breadcrumbs[mask]
+            return bread
+        else:
+            raise NameError("Il brand inserito non esiste!")
     
     def getCheck(self):
         file["_link"] = file["Bread_HTML 1"].str.split(">").str[-1].str.strip()
@@ -29,11 +32,17 @@ class Breadcrumbs:
         
 f = Breadcrumbs()
 
+nome_file = str(input("Inserisci il nome del file: "))
+
+marchi = ["Gucci", "Saint Laurent", "Chloe"]
+
 f.getFile()
 file = f.getBrand()
 
 f.getCheck()
 
-directory = r"C:\Users\miche\Desktop\py\GitHub\screming_frog_check_data\ok\\"
-file.to_csv(directory + f.brand + '.csv', index = False)
-file.to_csv(f.brand + '.csv', index = False)
+# ATTIVA QUESTE DUE RIGHE ED ELIMINA LA TERZA
+# RIGHE COMMENTATE PER TESTARE IL PROGRAMMA SUL PC DI CASA
+#directory = r"C:\Users\slevi\\OneDrive\\Desktop\\test\\screming_frog_check_data\\ok"
+#file.to_csv(directory + f.brand + '.csv', index = False)
+file.to_csv(f.brand + ".csv", index=False)
