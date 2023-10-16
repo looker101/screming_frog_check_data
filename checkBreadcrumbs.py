@@ -17,9 +17,12 @@ class Breadcrumbs:
 
     def getBrand(self):
         self.brand = str(input("Scegli il brand a cui vuoi controllare i Breadcrumbs: "))  # Assegna il valore a brand
-        mask = self.breadcrumbs["Bread_HTML 1"].str.contains(self.brand, case=False)
-        bread = self.breadcrumbs[mask]
-        return bread
+        if self.brand in marchi:
+            mask = self.breadcrumbs["Bread_HTML 1"].str.contains(self.brand, case=False)
+            bread = self.breadcrumbs[mask]
+            return bread
+        else:
+            raise NameError("Il brand inserito non esiste!")
     
     def getCheck(self):
         file["_link"] = file["Bread_HTML 1"].str.split(">").str[-1].str.strip()
@@ -30,6 +33,9 @@ class Breadcrumbs:
 f = Breadcrumbs()
 
 nome_file = str(input("Inserisci il nome del file: "))
+
+# INSERISCI TUTTI I BRAND NELLA LISTA
+marchi = ["Gucci", "Saint Laurent", "Chloe"]
 
 f.getFile()
 file = f.getBrand()
