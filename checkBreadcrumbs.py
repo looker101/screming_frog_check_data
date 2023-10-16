@@ -36,6 +36,8 @@ file = f.getBrand()
 
 f.getCheck()
 
+# ATTIVA QUESTE DUE RIGHE ED ELIMINA LA TERZA
+# RIGHE COMMENTATE PER TESTARE IL PROGRAMMA SUL PC DI CASA
 #directory = r"C:\Users\miche\Desktop\py\GitHub\screming_frog_check_data\ok\\"
 #file.to_csv(directory + f.brand + '.csv', index = False)
 file.to_csv(f.brand + ".csv", index=False)
