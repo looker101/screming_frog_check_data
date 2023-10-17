@@ -19,6 +19,7 @@ class Breadcrumbs:
 
     def getBrand(self):
         self.brand = str(input("Scegli il brand a cui vuoi controllare i Breadcrumbs: "))  # Assegna il valore a brand
+        # se non viene inserito niente nell'input otterrò come output tutto il file
         if self.brand in marchi:
             mask = self.breadcrumbs["Bread_TEXT 1"].str.contains(self.brand, case=False)
             bread = self.breadcrumbs[mask]
