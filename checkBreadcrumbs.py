@@ -39,7 +39,7 @@ nome_file = str(input("Inserisci il nome del file: "))
 # INSERISCI TUTTI I BRAND NELLA LISTA
 marchi = [
   "Adidas Originals", "Adidas Sport", "Alexander Mcqueen", "Arnette", "Balenciaga", "Bottega Veneta", "Burberry", "Bvlgari", "Carrera", "Carrera Ducati", 
-  "Chiara Ferragni", "Chloe", "David Beckham", "Dolce & Gabbana", "Gucci", "Guess", "Marc Jacobs", "Michael Kors", "Miu Miu", "Moncler", "Oakley", "Off White"
+  "Chiara Ferragni", "Chloe", "David Beckham", "Dolce & Gabbana", "Gucci", "Guess", "Marc Jacobs", "Michael Kors", "Miu Miu", "Moncler", "Oakley", "Off White",
   "Persol", "Polaroid", "Prada", "Prada Linea Rossa", "Ray Ban", "Rudy Project", "Saint Laurent", "Tiffany", "Timberland", "Tom Ford", "Versace", "Vogue" 
  ]
 
