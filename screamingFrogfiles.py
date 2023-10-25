@@ -62,7 +62,14 @@ class ScreamingFrog:
         #h1_1.to_csv("h1_miss.csv", index = False)
         #return h1
 
-    # 8) ottengo tutti i file
+    # 8) ottengo tutte le pagine scansionate con il relativo tempo di risposta | sotto 2sec è buono!
+    def getResponseTime(self):
+        response = df[["Indirizzo", "Tempo di risposta"]]
+        response = response.sort_values(by = "Tempo di risposta", ascending = False)
+        response.to_csv("tempoRisposta.csv", index = False)
+        return response
+
+    # 9) ottengo tutti i file
     def getFiles(self):
         f.getStatusCode()
         f.getNoIndex()
@@ -83,7 +90,8 @@ class ScreamingFrog:
         5 - Canonical
         6 - Numero di link x pagina
         7 - H1
-        8 - Tutti i files""")
+        8 - Tempo di Risposta
+        9 - Tutti i files""")
         scelta = str(input("Inserisci il numero: "))
         if scelta == "1":
             return f.getStatusCode()
@@ -105,4 +113,4 @@ class ScreamingFrog:
 df = pd.read_csv("interni_tutti.csv")
 f = ScreamingFrog(df)
 
-f.getResult()
+f.getResponseTime()
