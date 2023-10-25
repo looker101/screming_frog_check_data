@@ -100,26 +100,26 @@ class ScreamingFrog:
         8 - Tempo di Risposta
         9 - Livello di scansione
         10 - Tutti i files""")
-        scelta = str(input("Inserisci il numero: "))
-        if scelta == "1":
+        choice = str(input("Inserisci il numero: "))
+        if choice == "1":
             return f.getStatusCode()
-        elif scelta == "2":
+        elif choice == "2":
             return f.getNoIndex()
-        elif scelta == "3":
+        elif choice == "3":
             return f.getMetaTitle()
-        elif scelta == "4":
+        elif choice == "4":
             return f.getMetaDescipt()
-        elif scelta == "5":
+        elif choice == "5":
             return f.getCanonical()
-        elif scelta == "6":
+        elif choice == "6":
             return f.getInlinks()
-        elif scelta == "7":
+        elif choice == "7":
             return f.getH1null()
-        elif scelta == "8":
+        elif choice == "8":
             return f.getResponseTime()
-        elif scelta == "9":
+        elif choice == "9":
             return f.getCrawlDepth()
-        elif scelta == "10":
+        elif choice == "10":
             return f.getResult()
 
 df = pd.read_csv("interni_tutti.csv")
