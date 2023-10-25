@@ -59,7 +59,7 @@ class ScreamingFrog:
     def getH1null(self):
         h1 =  df[["Indirizzo", "H1-1"]]
         h1 = h1[h1["H1-1"].isnull()]
-        #h1_1.to_csv("h1_miss.csv", index = False)
+        h1_1.to_csv("h1_miss.csv", index = False)
         #return h1
 
     # 8) ottengo tutte le pagine scansionate con il relativo tempo di risposta | sotto 2sec è buono!
@@ -69,7 +69,14 @@ class ScreamingFrog:
         response.to_csv("tempoRisposta.csv", index = False)
         return response
 
-    # 9) ottengo tutti i file
+    # 9) ottengo il livello di scansione delle pagine
+    def getCrawlDepth(self):
+        crawl_depth = df.dropna(subset=["Livello di scansione"])
+        crawl_depth = crawl_depth[["Indirizzo", "Livello di scansione"]]
+        crawl_depth.to_csv("livello_di_scansione.csv", index = False)
+        return crawl_depth
+
+    # 10) ottengo tutti i file
     def getFiles(self):
         f.getStatusCode()
         f.getNoIndex()
@@ -91,7 +98,8 @@ class ScreamingFrog:
         6 - Numero di link x pagina
         7 - H1
         8 - Tempo di Risposta
-        9 - Tutti i files""")
+        9 - Livello di scansione
+        10 - Tutti i files""")
         scelta = str(input("Inserisci il numero: "))
         if scelta == "1":
             return f.getStatusCode()
@@ -108,9 +116,13 @@ class ScreamingFrog:
         elif scelta == "7":
             return f.getH1null()
         elif scelta == "8":
-            return f.getFiles()
+            return f.getResponseTime()
+        elif scelta == "9":
+            return f.getCrawlDepth()
+        elif scelta == "10":
+            return f.getResult()
 
 df = pd.read_csv("interni_tutti.csv")
 f = ScreamingFrog(df)
 
-f.getResponseTime()
+f.getResult()
