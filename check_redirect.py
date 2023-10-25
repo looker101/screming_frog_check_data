@@ -19,16 +19,16 @@ _301["Check"] = _301["Check"].str.strip()
 _301["redirect"] = _301["redirect"].str.strip()
 
 # faccio il confronto tra la colonna "Check" e "redirect"
-_301["MIMMO"] = _301["Check"] == _301["redirect"]
+_301["redirezione"] = _301["Check"] == _301["redirect"]
 
 # creo e salvo file relativo alle url che hanno confronto False
-mask = _301["MIMMO"] == False
+mask = _301["redirezione"] == False
 falso = _301[mask]
 
 falso.to_csv("redirect_falso.csv", index = False)
 
 # creo e salvo file relativo alle url che hanno confronto True
-mask = _301["MIMMO"] == True
+mask = _301["redirezione"] == True
 vero = _301[mask]
 
 vero.to_csv("redirect_vero.csv", index = False)
