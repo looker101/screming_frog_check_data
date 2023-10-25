@@ -59,7 +59,7 @@ class ScreamingFrog:
     def getH1null(self):
         h1 =  df[["Indirizzo", "H1-1"]]
         h1 = h1[h1["H1-1"].isnull()]
-        h1_1.to_csv("h1_miss.csv", index = False)
+        h1.to_csv("h1_miss.csv", index = False)
         #return h1
 
     # 8) ottengo tutte le pagine scansionate con il relativo tempo di risposta | sotto 2sec è buono!
@@ -120,7 +120,7 @@ class ScreamingFrog:
         elif choice == "9":
             return f.getCrawlDepth()
         elif choice == "10":
-            return f.getResult()
+            return f.getFiles()
 
 df = pd.read_csv("interni_tutti.csv")
 f = ScreamingFrog(df)
