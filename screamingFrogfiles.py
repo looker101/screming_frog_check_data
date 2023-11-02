@@ -1,4 +1,5 @@
 import pandas as pd
+import alternate_canonical
 
 class ScreamingFrog:
     def __init__(self, df):
@@ -99,7 +100,8 @@ class ScreamingFrog:
         7 - H1
         8 - Tempo di Risposta
         9 - Livello di scansione
-        10 - Tutti i files""")
+        10 - Test alternate
+        11 - Tutti i files""")
         choice = str(input("Inserisci il numero: "))
         if choice == "1":
             return f.getStatusCode()
@@ -119,8 +121,12 @@ class ScreamingFrog:
             return f.getResponseTime()
         elif choice == "9":
             return f.getCrawlDepth()
-        elif choice == "10":
+        elif choice == "11":
             return f.getFiles()
+        elif choice == "10":
+            alternate_canonical.alternateCanonical()
+        else:
+            print("Il valore inserito non è valido!")
 
 df = pd.read_csv("interni_tutti.csv")
 f = ScreamingFrog(df)
