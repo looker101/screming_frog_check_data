@@ -18,7 +18,7 @@ class ScreamingFrog:
         global noindex
         mask = df["Indicizzabilità"] == "Non indicizzabile"
         noindex = df[mask]
-        noindex.to_csv("noindex.csv", index = "False")
+        noindex.to_csv("noindex.csv", index = False)
         #return noindex
 
     # 3) ottengo i metatitle più lunghi di 75 caratteri
@@ -100,7 +100,7 @@ class ScreamingFrog:
         7 - H1
         8 - Tempo di Risposta
         9 - Livello di scansione
-        10 - Alternate Page with proper canonical tag
+        10 - Alternate Page with proper canonical tag (Per questa opzione è necessario scaricare il file "canonical_tutti")
         11 - Tutti i files""")
         choice = str(input("Inserisci il numero: "))
         if choice == "1":
