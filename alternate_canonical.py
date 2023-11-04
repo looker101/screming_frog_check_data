@@ -9,4 +9,4 @@ def alternateCanonical():
     df.to_csv("checkCanonical.csv")
     #return df
 
-alternateCanonical()
+#alternateCanonical()

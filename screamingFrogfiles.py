@@ -100,7 +100,7 @@ class ScreamingFrog:
         7 - H1
         8 - Tempo di Risposta
         9 - Livello di scansione
-        10 - Test alternate
+        10 - Alternate Page with proper canonical tag
         11 - Tutti i files""")
         choice = str(input("Inserisci il numero: "))
         if choice == "1":
