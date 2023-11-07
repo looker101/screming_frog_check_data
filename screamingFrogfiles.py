@@ -1,5 +1,6 @@
 import pandas as pd
 import alternate_canonical
+import hreflang
 
 class ScreamingFrog:
     def __init__(self, df):
@@ -101,7 +102,8 @@ class ScreamingFrog:
         8 - Tempo di Risposta
         9 - Livello di scansione
         10 - Alternate Page with proper canonical tag (Per questa opzione è necessario scaricare il file "canonical_tutti")
-        11 - Tutti i files""")
+        11 - Hreflang
+        12 - Tutti i files""")
         choice = str(input("Inserisci il numero: "))
         if choice == "1":
             return f.getStatusCode()
@@ -121,13 +123,14 @@ class ScreamingFrog:
             return f.getResponseTime()
         elif choice == "9":
             return f.getCrawlDepth()
-        elif choice == "11":
+        elif choice == "12":
             return f.getFiles()
         elif choice == "10":
             alternate_canonical.alternateCanonical()
+        elif choice == "11":
+            hreflang.getHreflang()
         else:
             print("Il valore inserito non è valido!")
-
 
 df = pd.read_csv("interni_tutti.csv", low_memory=False)
 f = ScreamingFrog(df)
