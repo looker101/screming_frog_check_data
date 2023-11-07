@@ -10,7 +10,6 @@ class ScreamingFrog:
         global status_code 
         mask = df["Codice di stato"] != 200
         status_code = df[mask]
-        status_code = status_code[["Indirizzo", "Codice di stato", "URL redirect"]]
         status_code.to_csv("status_code.csv", index = False)
         #return status_code
 
@@ -19,7 +18,6 @@ class ScreamingFrog:
         global noindex
         mask = df["Indicizzabilità"] == "Non indicizzabile"
         noindex = df[mask]
-        noindex = noindex[["Indirizzo", "Stato di indicizzabilità", "Meta robots 1"]]
         noindex.to_csv("noindex.csv", index = False)
         #return noindex
 
@@ -103,8 +101,7 @@ class ScreamingFrog:
         8 - Tempo di Risposta
         9 - Livello di scansione
         10 - Alternate Page with proper canonical tag (Per questa opzione è necessario scaricare il file "canonical_tutti")
-        11 - Controlla i redirect 
-        12 - Tutti i files""")
+        11 - Tutti i files""")
         choice = str(input("Inserisci il numero: "))
         if choice == "1":
             return f.getStatusCode()
@@ -132,7 +129,7 @@ class ScreamingFrog:
             print("Il valore inserito non è valido!")
 
 
-df = pd.read_csv("interni_tutti.csv")
+df = pd.read_csv("interni_tutti.csv", low_memory=False)
 f = ScreamingFrog(df)
 
 f.getResult()
