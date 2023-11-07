@@ -96,7 +96,7 @@ class ScreamingFrog:
         3 - Meta title
         4 - Meta description
         5 - Canonical
-        6 - Numero di link x pagina
+        6 - Numero di link x pagina (Dato poco affidabile, meglio esportare inlinks e outlinks dall'esportazione di massa su screaming frog)
         7 - H1
         8 - Tempo di Risposta
         9 - Livello di scansione
