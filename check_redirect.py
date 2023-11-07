@@ -1,34 +1,20 @@
 import pandas as pd
+pd.set_option("display.max_colwidth", None)
 
-# setto il file con le colonne che mi servono per effettuare il controllo dei redirect
-df = pd.read_csv("interni_tutti.csv", usecols = ["Indirizzo", "URL redirect", "Codice di stato"])
-pd.set_option("display.max_columns", None)
+class CheckRedirect:
+    def __init__(self):
+        self.df = None
 
-# filtro per codice di stato tutte le URL divere da 200 e creo un nuovo df
-mask = df["Codice di stato"] != 200
-_301 = df[mask]
+    def readFile(self):
+        self.df = pd.read_csv("interni_tutti.csv", usecols = ["Indirizzo", "URL redirect", "Codice di stato"])
+        return self.df
 
-# creo una colonna con la seconda parte dell'URL della colonna "Indirizzo"
-_301["Address1"] = _301["Indirizzo"].str.split().str[1]
+    def getStatusError(self):
+        mask = self.df["Codice di stato"] == 301
+        _301 = self.df[mask]
+        _301.to_csv("301Status.csv", index = False)
 
-# creo un'altra cartella dove toglo https://lookeronline.com/products e https://lookeronline.com/collections dalla colonna dei redirect
-_301["redirect_ok"] = _301["URL redirect"].str.replace("https://lookeronline.com/products", " ").str("https://lookeronline.com/collections", " ")
+redirect_checker = CheckRedirect()
 
-# elimino eventuali spazi dalle colonne che ho appena creato
-_301["Check"] = _301["Check"].str.strip()
-_301["redirect"] = _301["redirect"].str.strip()
-
-# faccio il confronto tra la colonna "Check" e "redirect"
-_301["redirezione"] = _301["Check"] == _301["redirect"]
-
-# creo e salvo file relativo alle url che hanno confronto False
-mask = _301["redirezione"] == False
-falso = _301[mask]
-
-falso.to_csv("redirect_falso.csv", index = False)
-
-# creo e salvo file relativo alle url che hanno confronto True
-mask = _301["redirezione"] == True
-vero = _301[mask]
-
-vero.to_csv("redirect_vero.csv", index = False)
+redirect_checker.readFile()
+redirect_checker.getStatusError()
