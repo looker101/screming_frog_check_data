@@ -17,4 +17,4 @@ class CheckRedirect:
 redirect_checker = CheckRedirect()
 
 redirect_checker.readFile()
-redirect_checker.getStatusError()
+file = redirect_checker.getStatusError()
