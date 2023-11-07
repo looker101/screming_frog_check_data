@@ -10,6 +10,7 @@ class ScreamingFrog:
         global status_code 
         mask = df["Codice di stato"] != 200
         status_code = df[mask]
+        status_code = status_code[["Indirizzo", "Codice di stato", "URL redirect"]]
         status_code.to_csv("status_code.csv", index = False)
         #return status_code
 
@@ -18,6 +19,7 @@ class ScreamingFrog:
         global noindex
         mask = df["Indicizzabilità"] == "Non indicizzabile"
         noindex = df[mask]
+        noindex = noindex[["Indirizzo", "Stato di indicizzabilità", "Meta robots 1"]]
         noindex.to_csv("noindex.csv", index = False)
         #return noindex
 
