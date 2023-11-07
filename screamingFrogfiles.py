@@ -10,6 +10,7 @@ class ScreamingFrog:
         global status_code 
         mask = df["Codice di stato"] != 200
         status_code = df[mask]
+        status_code = status_code[["Indirizzo", "Codice di stato", "Tipo di redirect"]]
         status_code.to_csv("status_code.csv", index = False)
         #return status_code
 
