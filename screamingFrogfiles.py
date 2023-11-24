@@ -135,4 +135,5 @@ class ScreamingFrog:
 df = pd.read_csv("interni_tutti.csv", low_memory=False)
 f = ScreamingFrog(df)
 
-f.getResult()
+if __name__ == "__main__":
+    f.getResult()
