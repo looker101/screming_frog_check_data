@@ -6,5 +6,3 @@
 ************************************
 
 Potresti rifare il programma concatenando tutti i file di un fornitore e riportare un file unico per ogni fornitore 🤪🧌
-
-"https://github.githubassets.com/images/icons/emoji/unicode/1f47c.png?v8"
