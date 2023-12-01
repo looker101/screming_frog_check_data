@@ -5,4 +5,4 @@
 
 ************************************
 
-Potresti rifare il programma concatendando tutti i file di un fornitore e riportare un file unico per ogni fornitore
+Potresti rifare il programma concatenando tutti i file di un fornitore e riportare un file unico per ogni fornitore 🤪🧌
