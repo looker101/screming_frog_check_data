@@ -1,5 +1,6 @@
 #    🐸 Screaming Frog check data 🐸
 ## On this repository, after Screaming frog crawling, you can find a few methods to analyze some sections of websites. 
+## From screamingFrogfiles.py:
 
 1. Get Status Code: get all pages with status code different to 200. You get a list with all redirect pages or 4** error
 
