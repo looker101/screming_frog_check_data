@@ -1,13 +1,13 @@
-1. Get Status Code: otterrai un file csv con tutte la pagine che hanno uno status code diverso da 200. Ovvero tutte pagine che hanno subio un redirect o che hanno un errore di tipo 400 o 500.
+1. Get Status Code: otterrai un file csv con tutte la pagine che hanno uno status code diverso da 200. Ovvero tutte pagine che hanno subito un redirect o che hanno un errore di tipo 400 o 500.
 
-2. Get noIndex: ottieni un file csv con tutte le pagine che non sono indicizzabili. Controlla la loro effetttiva indicizzazione tramite GSC.
+2. Get noIndex: ottieni un file csv con tutte le pagine che non sono indicizzabili. Controlla la loro effettiva indicizzazione tramite GSC.
 
 3. Get metatitle: ottieni umn file csv con tutti i meta title piu lunghi di 75 caratteri.
 
 4. Get metadescript: ottieni un file csv con tutte le metadesciption piu lunghe di 135 caratteri.
 
-5. Get canonical: controlla che la prima parte dell'indirizzo sia uguale al canonical della pagina stessa. Nella colonna "Check" del file csv avrai "True" in caso i due valori corrispondono, in caso contrario "False".
-Per effettuare un'esportazione personalizzata utilizza questo Xpath: //link[@rel='canonical']/@href
+5. Get canonical: controlla che la prima parte dell'indirizzo sia uguale al canonical della pagina stessa. Nella colonna "Check" del file csv avrai "True" in caso     i due valori corrispondono, in caso contrario "False".
+    Per effettuare un'esportazione personalizzata, puoi utilizzare questo Xpath: //link[@rel='canonical']/@href
 
 6. Get inlinks: Non utilizzare questa opzione. Meglio esportare i link direttamente dell'esportazione di massa
 
@@ -24,3 +24,4 @@ Per effettuare un'esportazione personalizzata utilizza questo Xpath: //link[@rel
 
 11. Hreflang: controlla che ogni pagina del sito abbia il suo corretto hreflang. 
     Le tre colonne finali saranno riempite con True e False. Se il valore è  False vuol dire che il tag hreflang non corrisponde.
+    Per effettuare un'esportazione personalizzata del tag hreflang puoi utilizzare questo Xpath: (//*[@hreflang])/@hreflang
