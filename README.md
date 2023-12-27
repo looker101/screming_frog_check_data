@@ -1,4 +1,4 @@
-    🤔 **Controlla il programma relativo al controllo dei breadcrumbs e spiega tutto qui nel README.** 🤔 
+    🤔 **Controlla il programma relativo al controllo dei __breadcrumbs__ e spiega tutto qui nel README.** 🤔 
 
 1. Get Status Code: otterrai un file csv con tutte la pagine che hanno uno status code diverso da 200. Ovvero tutte pagine che hanno subito un redirect o che hanno un errore di tipo 400 o 500.
 
