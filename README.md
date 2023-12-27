@@ -1,26 +1,28 @@
-1. Get Status Code: otterrai un file csv con tutte la pagine che hanno uno status code diverso da 200. Ovvero tutte pagine che hanno subio un redirect o che hanno un errore di tipo 400 o 500.
+1. Get Status Code: get all pages with status code different to 200. You get a list with all redirect page or 4** error
 
-2. Get noIndex: ottieni un file csv con tutte le pagine che non sono indicizzabili. Controlla la loro effetttiva indicizzazione tramite GSC.
+2. Get noIndex: Get a csv file with all the pages that are not indexable. Check their effective indexing through GSC.
 
-3. Get metatitle: ottieni umn file csv con tutti i meta title piu lunghi di 75 caratteri.
+3. Get metatitle: get all metatitle longer than 75 characters
 
-4. Get metadescript: ottieni un file csv con tutte le metadesciption piu lunghe di 135 caratteri.
+4. Get metadescript: get all metadesciption longer than 135 characters.
 
-5. Get canonical: controlla che la prima parte dell'indirizzo sia uguale al canonical della pagina stessa. Nella colonna "Check" del file csv avrai "True" in caso i due valori corrispondono, in caso contrario "False".
-Per effettuare un'esportazione personalizzata utilizza questo Xpath: //link[@rel='canonical']/@href
+5. Get canonical: make sure the first part of the address to be ugual to canonical link.
+In the "Check" column you can find two values: True and False.
+If True, values match else you will find False.
+To make custom export, use this Xpath: //link[@rel='canonical']/@href
 
-6. Get inlinks: Non utilizzare questa opzione. Meglio esportare i link direttamente dell'esportazione di massa
+6. Get inlinks: don't use this option. It's better to export from bulk export section.
 
-7. get H1 null: nel file ci sarà li lista con tutte le pagine a cui manca il tag H1.
+7. get H1 null: URL list with all page without H1 tag
 
-8. Get Response time: nel file saranno elencate le pagine con il tempo di risposta. Saranno ordinate da quella piu lenta a quella piu veloce.
+8. Get Response time: The file will list the pages with the response time. They will be ordered from slowest to fastest.
 
-9. Get crawl depht: per ogni pagina avrai il livello di scansione. Piu basso è il livello di scansione, piu velocemente il crawler avrà accesso a quella pagina.
+9. Get crawl depht: for each page you have crawl depth. More low will be the crawl depth more faster will have access to the page
 
 10. Alternate page with proper canonical tag: 
-    - esporta da GSC l'elenco con le pagine interessate
-    - inserisci il file su screaming frog in modalità "list"
-    - dopo la scansione, controlla che il tag canonical sia corretto. Puoi controllare nello stesso modo del punto 5 (canonical)
-
-11. Hreflang: controlla che ogni pagina del sito abbia il suo corretto hreflang. 
-    Le tre colonne finali saranno riempite con True e False. Se il valore è  False vuol dire che il tag hreflang non corrisponde.
+    - from GSC, export URL with Alternate page with proper canonical tag.
+    - Insert on Screaming Frog the file with "List mode"
+    - After crawling, check canonical link to be correct. You can check the same way as in step 5 (canonical)
+    
+11. Hreflang: checks that each page of the site has its correct hreflang. 
+    The final three columns will be filled with True and False. If the value is False it means that the hreflang tag does not match.
