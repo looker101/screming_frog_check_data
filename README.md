@@ -13,7 +13,7 @@
 5. Get canonical: make sure the first part of the address is ugual to the canonical link.
 In the "Check" column you can find two values: True and False.
 If True, values match otherwise, you will find False.
-To make a custom export, use this Xpath: //link[@rel='canonical']/@href
+To make a custom export, use this Xpath: **//link[@rel='canonical']/@href**
 
 6. Get inlinks: don't use this option. It's better to export from the bulk export section.
 
@@ -30,4 +30,4 @@ To make a custom export, use this Xpath: //link[@rel='canonical']/@href
     
 11. Hreflang: checks that each page of the site has its correct Hreflang. 
     The final three columns will be filled with True and False. If the value is False it means that the hreflang tag does not match.
-    To make custom export, use this Xpath: (//*[@hreflang])/@hreflang
+    To make custom export, use this Xpath: **(//*[@hreflang])/@hreflang**
